@@ -17,7 +17,7 @@ class Jmol < Formula
       #!/bin/sh
       JMOL_HOME=#{prefix} exec #{prefix}/jmol.sh "$*"
     EOS
-    chmod "+x", %w[jmol jmol.sh]
+    chmod 0755, %w[jmol jmol.sh]
     bin.install "jmol"
     prefix.install "jmol.sh", Dir["*.jar"]
     prefix.install Dir["build/*.jar"] if build.head?
