@@ -25,7 +25,7 @@ class Jmol < Formula
 
   test do
     system "true"
-    # system "jmol", "-n" # unfortunately can not be run headless, but this should work otherwise
+    # system "jmol", "-n" # unfortunately, the application can not be run headless, but this should work otherwise
   end
 end
 
