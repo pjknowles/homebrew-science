@@ -13,12 +13,11 @@ class Jmol < Formula
   def install
     system "ant" if build.head?
     mv "jmol", "jmol.original"
-    (buildpath/"jmol").write <<-EOS.undent
+    (buildpath/bin/"jmol").write <<-EOS.undent
       #!/bin/sh
       JMOL_HOME=#{prefix} exec #{prefix}/jmol.sh "$*"
     EOS
-    chmod 0755, %w[jmol jmol.sh]
-    bin.install "jmol"
+    chmod 0755, "jmol.sh"
     prefix.install "jmol.sh", Dir["*.jar"]
     prefix.install Dir["build/*.jar"] if build.head?
   end
