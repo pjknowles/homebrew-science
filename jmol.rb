@@ -12,7 +12,6 @@ class Jmol < Formula
 
   def install
     system "ant" if build.head?
-    mv "jmol", "jmol.original"
     (bin/"jmol").write <<-EOS.undent
       #!/bin/sh
       JMOL_HOME=#{prefix} exec #{prefix}/jmol.sh "$*"
